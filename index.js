@@ -1,6 +1,8 @@
-import express from 'express';
-import users from './routes/users.js';
+import express from 'express'
+import users from './routes/users.js'
+import client from './mongo/connect.js'
 
+client()
 const app = express();
 const port = 8000;
 
