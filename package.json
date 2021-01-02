@@ -10,10 +10,11 @@
   "author": "@Un-dev",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
-    "@babel/preset-env": "^7.12.7"
+    "@babel/preset-env": "^7.12.7",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9"
   },
   "babel": {
     "presets": [
