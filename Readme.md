@@ -5,21 +5,23 @@ it is supposed to be ultra vulnerable against any attack in a first time then i'
 
 The api in itself is really basic. Written in express, it requires its data from a MongoCloud cluster of mine through the mongoose framework, it only has one Entity, Users and few actions :
 
-* GET /users/ : responds with all users in the DB
-* GET /users/:id : responds with the corresponding user
-* DELETE /users/:id : deletes the user
-* POST /users : creates a user
+* ```GET /users/``` : responds with all users in the DB
+* ```GET /users/:id``` : responds with the corresponding user
+* ```DELETE /users/:id``` : deletes the user
+* ```POST /users```: creates a user
 
 
 ## Installation
 
-### Method 1 (no install required)
+### Method 1 (no installation required)
 
 If you have docker installed and running, you just have to run (faster, should always work but might not be fully up to date):
 
 ```
 docker container run sgttabouret/facebok:latest
 ```
+
+### Method 2 (still no installation required)
 
 or you can build and run it on your own machine !
 
@@ -48,3 +50,10 @@ The attack area is available here : [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3J
 
 ### CIDT
 
+#### Confidentiality
+
+#### Integrity
+
+#### Disponibility
+
+#### Tracability
