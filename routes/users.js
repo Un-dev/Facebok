@@ -29,7 +29,7 @@ users.get('/:id', (req, res, erre) => {
 users.post('/', async(req, res, err) => {
   try{
     const{username, password} = req.body;
-    console.log(req.body)
+    // console.log(req.body)
 
     const id = new mongoose.mongo.ObjectId()
 
@@ -50,7 +50,10 @@ users.post('/', async(req, res, err) => {
 })
 
 users.delete('/:id', (req, res, err)=>{
-
+  User.findByIdAndDelete(new mongoose.mongo.ObjectId(req.params.id))
+      .then(deletedUser => {
+        res.status(200).json(deletedUser)
+      })
 })
 
 
