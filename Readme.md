@@ -12,6 +12,24 @@ If you have docker installed and running, you just have to run :
 docker run
 ```
 
+or you can build and run it on your own machine !
+
+```
+git clone https://github.com/Un-dev/Facebok.git
+cd Facebok
+docker build
+```
+
+## Code Organization
+
+* The entrypoint of the app is the ```index.js``` file
+
+* ```./models``` contains the models that mongoose will retrieve and, the role of models is to tell javascript what the mongo bject are supposed to look like
+
+* ```./mongo``` contains a script that connects the api to mongoCloud
+
+* ```./routes``` contains the routes of the api
+
 ## Others
 
 ### Mermaid
