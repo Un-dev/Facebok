@@ -17,7 +17,8 @@ or you can build and run it on your own machine !
 ```
 git clone https://github.com/Un-dev/Facebok.git
 cd Facebok
-docker build
+docker build -t facebok:latest .
+docker container run --rm -p 5000:5000 facebok:latest
 ```
 
 ## Code Organization
