@@ -50,10 +50,4 @@ The attack area is available here : [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3J
 
 ### CIDT
 
-#### Confidentiality
-
-#### Integrity
-
-#### Disponibility
-
-#### Tracability
+My CIDT objectives are here : 
