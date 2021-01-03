@@ -1,10 +1,13 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 import users from './routes/users.js'
 import client from './mongo/connect.js'
 
 client()
 const app = express();
 const port = 8000;
+
+app.use(bodyParser.json())
 
 app.use('/users', users);
 
