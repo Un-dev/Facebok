@@ -6,10 +6,10 @@ This is just a suuuuper simple api made during a cybersecurity course as a final
 
 ### Method 1 (no install required)
 
-If you have docker installed and running, you just have to run :
+If you have docker installed and running, you just have to run (faster, should always work but might not be fully up to date):
 
 ```
-docker run
+docker container run sgttabouret/facebok:latest
 ```
 
 or you can build and run it on your own machine !
