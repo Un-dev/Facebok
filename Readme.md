@@ -3,7 +3,7 @@
 This is just a suuuuper simple api made during a cybersecurity course as a final project, 
 it is supposed to be ultra vulnerable against any attack in a first time then i'll have to explain where are the vulnerabilities and eventually correct them on another branch.
 
-The api in itself is really basic. Written in express, it requires its data from a MongoCloud cluster of mine through the mongoose framework, it only has one Entity, Users and few actions :
+The api in itself is really basic. Written in express, it requests its data from a MongoCloud cluster of mine through the mongoose framework, it only has one Entity, Users and few actions :
 
 * ```GET /users/``` : responds with all users in the DB
 * ```GET /users/:id``` : responds with the corresponding user
