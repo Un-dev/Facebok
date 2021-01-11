@@ -22,8 +22,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: 
-        name: build
-        command: docker image build --tag $IMAGE_NAME:app .
+          name: build
+          command: | 
+            docker image build --tag $IMAGE_NAME:app .
   
 workflows:
   build-and-push:
