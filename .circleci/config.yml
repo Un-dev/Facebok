@@ -22,9 +22,15 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: 
-          name: build
-          command: | 
-            docker image build --tag $IMAGE_NAME:app .
+          name: building image
+          command: docker image build --tag $IMAGE_NAME:app .
+      - run:
+          name: saving image
+          command: docker save -o image.tar $IMAGE_NAME
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./image.tar
   
 workflows:
   build-and-push:
