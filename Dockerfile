@@ -1,4 +1,4 @@
-FROM node:14.15-buster
+FROM node:14.7-buster
 
 WORKDIR /api
 COPY package.json ./
