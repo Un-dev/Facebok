@@ -31,7 +31,7 @@ workflows:
     jobs:
       - build
       - build_docker:
-        requires: 
-          - build
+          requires: 
+            - build
       # - docker_hub:
       #   requires: build_docker
