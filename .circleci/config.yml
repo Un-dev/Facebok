@@ -13,8 +13,24 @@ jobs:
           key: npm-deps{{checksum "package-lock.json"}}
           paths:
             - ./node_modules
-
+  build_docker:
+    environment:
+      IMAGE_NAME: sgttabouret/facebok
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: 
+        name: build
+        command: docker image build --tag $IMAGE_NAME:app .
+  
 workflows:
   build-and-push:
     jobs:
       - build
+      - build_docker:
+        requires: 
+          - build
+      - docker_hub:
+        requires: build_docker
