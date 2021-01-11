@@ -18,7 +18,7 @@ The api in itself is really basic. Written in express, it requests its data from
 If you have docker installed and running, you just have to run (faster, should always work but might not be fully up to date):
 
 ```
-docker container run sgttabouret/facebok:latest
+docker container run -p 8000:8000 sgttabouret/facebok:latest
 ```
 
 ### Method 2 (still no installation required)
