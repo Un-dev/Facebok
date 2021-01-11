@@ -1,4 +1,14 @@
+# javascript
 node_modules
 npm-debug.log
+
+# docker
 Dockerfile
 .dockerignore
+
+# docs
+Readme.md
+CIDT.md
+
+# ci
+.circleci
