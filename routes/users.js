@@ -2,13 +2,12 @@ import express from 'express'
 import User from '../models/user.model.js'
 import mongoose from 'mongoose'
 
-
-
 const users = express.Router();
 
 /** 
- * @vulnerability : Shows raw password of users
- * @route : GET / 
+ * @namespace users
+ * @todo Shows raw password of users
+ * @description GET / 
  * Returns every users found in the database
 */
 users.get('/', (req, res, err) => {
@@ -23,8 +22,9 @@ users.get('/', (req, res, err) => {
 });
 
 /**
- * @route : GET /:id
- * Returns the user whose ID is :id
+ * @namespace users
+ * @description GET /id
+ * Returns the user whose ID is id
  */
 users.get('/:id', (req, res, erre) => {
   User.findById(new mongoose.mongo.ObjectId(req.params.id))
@@ -34,8 +34,9 @@ users.get('/:id', (req, res, erre) => {
 });
 
 /**
- * @vulnerability : the function allows new users to have the same password/username as other users
- * @route : POST /
+ * @namespace users
+ * @todo the function allows new users to have the same password/username as other users
+ * @description POST /
  * Adds a user in the users db collection
  */
 users.post('/', async(req, res, err) => {
@@ -61,6 +62,12 @@ users.post('/', async(req, res, err) => {
   }
 })
 
+/**
+ * @namespace users
+ * @todo anyone can delete a user
+ * @description DELETE /id
+ * Deletes the user whose ID is id
+ */
 users.delete('/:id', (req, res, err)=>{
   User.findByIdAndDelete(new mongoose.mongo.ObjectId(req.params.id))
       .then(deletedUser => {

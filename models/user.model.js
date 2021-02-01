@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
+
 /**
- * Represents a User
- * @Schema
+ * @class userModel
  */
 
 const userSchema = mongoose.Schema({

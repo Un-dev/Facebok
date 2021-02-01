@@ -3,11 +3,14 @@ import bodyParser from 'body-parser'
 import users from './routes/users.js'
 import client from './mongo/connect.js'
 import mongoose from 'mongoose'
+
 client()
 const app = express();
 const port = 8000;
 
 app.use(bodyParser.json())
+
+app.use('/', express.static('out'))
 
 app.use('/users', users);
 
