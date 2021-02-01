@@ -6,7 +6,11 @@ import mongoose from 'mongoose'
 
 const users = express.Router();
 
-//shows raw password
+/** 
+ * @vulnerability : Shows raw password of users
+ * @route : GET / 
+ * Returns every users found in the database
+*/
 users.get('/', (req, res, err) => {
   User.find()
       .then(docs => {
@@ -18,6 +22,10 @@ users.get('/', (req, res, err) => {
       })
 });
 
+/**
+ * @route : GET /:id
+ * Returns the user whose ID is :id
+ */
 users.get('/:id', (req, res, erre) => {
   User.findById(new mongoose.mongo.ObjectId(req.params.id))
   .then(user => {
@@ -25,7 +33,11 @@ users.get('/:id', (req, res, erre) => {
   })
 });
 
-//can have same password/username etc as others
+/**
+ * @vulnerability : the function allows new users to have the same password/username as other users
+ * @route : POST /
+ * Adds a user in the users db collection
+ */
 users.post('/', async(req, res, err) => {
   try{
     const{username, password} = req.body;

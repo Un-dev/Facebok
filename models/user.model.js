@@ -1,5 +1,10 @@
 import mongoose from 'mongoose'
 
+/**
+ * Represents a User
+ * @Schema
+ */
+
 const userSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: mongoose.Schema.Types.String,
