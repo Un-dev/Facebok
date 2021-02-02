@@ -18,10 +18,10 @@ app.listen(port, () => console.log(`The api is listening on port localhost:${por
 
 //closes mongo connection on process stop (that's one of the security stuff I had to add to the project as it may just break the api during a normal use)
 process.on('SIGINT', function() {
-    mongoose.connection.close(() => {
-      console.log('Mongoose disconnected on app termination');
-      process.exit(0);
-    });
+  mongoose.connection.close(() => {
+    console.log('Mongoose disconnected on app termination');
+    process.exit(0);
   });
+});
 
 export default app;

@@ -23,6 +23,7 @@ users.get('/', (req, res, err) => {
 
 /**
  * @namespace users
+ * @todo anyone can see any user's information, also shows raw password of users 
  * @description GET /id
  * Returns the user whose ID is id
  */
@@ -35,7 +36,7 @@ users.get('/:id', (req, res, erre) => {
 
 /**
  * @namespace users
- * @todo the function allows new users to have the same password/username as other users
+ * @todo the function allows new users to have the same password/username as other users, also allows sql injection
  * @description POST /
  * Adds a user in the users db collection
  */
@@ -64,7 +65,7 @@ users.post('/', async(req, res, err) => {
 
 /**
  * @namespace users
- * @todo anyone can delete a user
+ * @todo anyone can delete any user
  * @description DELETE /id
  * Deletes the user whose ID is id
  */
