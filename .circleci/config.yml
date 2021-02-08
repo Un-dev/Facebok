@@ -54,13 +54,12 @@ workflows:
   build-and-push:
     jobs:
       - build
-          filters:
-              branches:
-                only:
-                  - master
       - build_docker:
           requires: 
             - build
+          filters:
+            branches:
+              only: master
       - docker_push:
           requires: 
             - build_docker
