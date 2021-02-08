@@ -16,7 +16,7 @@ users.get('/', (req, res, err) => {
           formattedUsers.push({
             id: user._id,
             username: user.username,
-            age: user.age ? user.age : '-1'
+            age: user.age ? user.age : '-1',
           })
         })
         res.status(200).json({
@@ -35,7 +35,11 @@ users.get('/', (req, res, err) => {
 users.get('/:id', (req, res, erre) => {
   User.findById(new mongoose.mongo.ObjectId(req.params.id))
   .then(user => {
-    res.status(200).json(user)
+    res.status(200).json({
+      id: user._id,
+      username: user.username,
+      age: user.age ? user.age : '-1',
+    })
   })
 });
 
