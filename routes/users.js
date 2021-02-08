@@ -36,7 +36,7 @@ users.get('/:id', (req, res, erre) => {
 
 /**
  * @namespace users
- * @todo the function allows new users to have the same password/username as other users, also allows sql injection
+ * @todo the function allows new users to have the same password/username as other users, also allows sql injection and passwords are not encrypted
  * @description POST /
  * Adds a user in the users db collection
  */
