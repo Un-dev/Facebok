@@ -6,6 +6,7 @@ it is supposed to be ultra vulnerable against any attack in a first time then i'
 The api in itself is really basic. Written in express, it requests its data from a MongoCloud cluster of mine through the mongoose framework, it only has one Entity, Users and few actions :
 
 * ```GET /``` : responds with the api auto-generated docs, the vulnerabilities are documented under the @todo tag
+* ```GET /CIDT``` : responds with my CIDT objectives
 * ```GET /users/``` : responds with all users in the DB
 * ```GET /users/:id``` : responds with the corresponding user
 * ```DELETE /users/:id``` : deletes the user
@@ -51,4 +52,4 @@ The attack area is available here : [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3J
 
 ### CIDT
 
-My CIDT objectives are available [here](https://github.com/Un-dev/Facebok/blob/master/CIDT.md).
+My CIDT objectives are available [here](https://github.com/Un-dev/Facebok/blob/master/CIDT.md) or at [localhost:8000/CIDT](localhost:8000/CIDT) if you are running the app.
