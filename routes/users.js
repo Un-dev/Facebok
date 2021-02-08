@@ -6,17 +6,22 @@ const users = express.Router();
 
 /** 
  * @namespace users
- * @todo Shows raw password of users
- * @description GET / 
- * Returns every users found in the database
+ * @description GET / : Returns every users found in the database, the method has been modified to not display passwords
 */
 users.get('/', (req, res, err) => {
   User.find()
       .then(docs => {
-        console.log(`users found : \n${docs}`)
+        const formattedUsers = []
+        docs.forEach((user) => {
+          formattedUsers.push({
+            id: user._id,
+            username: user.username,
+            age: user.age ? user.age : '-1'
+          })
+        })
         res.status(200).json({
           count: docs.length,
-          users: docs
+          users: formattedUsers
         })
       })
 });
