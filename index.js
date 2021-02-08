@@ -12,6 +12,8 @@ app.use(bodyParser.json())
 
 app.use('/', express.static('out'))
 
+app.use('/CIDT', express.static('CIDT.md'))
+
 app.use('/users', users);
 
 app.listen(port, () => console.log(`The api is listening on port localhost:${port}!`));
