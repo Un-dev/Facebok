@@ -1,7 +1,11 @@
 import express from 'express'
 import User from '../models/user.model.js'
 import mongoose from 'mongoose'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
+import dotenv from 'dotenv'
 
+const config = dotenv.config().parsed
 const users = express.Router();
 
 /** 
@@ -83,5 +87,37 @@ users.delete('/:id', (req, res, err)=>{
       })
 })
 
+users.get('/me', (req, res, err) => {
+
+})
+
+users.post('/signin', (req, res, err) => {
+  User.findOne({ username: req.body.username })
+      .then((user) => {
+        if (!user) {
+          return res.status(401).json({error: new Error('User not found!')})
+        }
+        bcrypt.compare(req.body.password, user.password).then((valid) => {
+          if(!valid) {
+            return res.status(401).json({
+              error: new Error('Incorrect password!')
+            })
+          }
+          const token = jwt.sign(
+            {userId: user._id}, 
+            config.JWT_SECRET, 
+            {expiresIn: '2d'}
+          )
+          res.status(200).json({
+            id: user._id,
+            token: token
+          })
+        })
+      })
+})
+
+user.post('/signup', (req, res, err) => {
+
+})
 
 export default users;
