@@ -1,11 +1,14 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
+const config = dotenv.config().parsed
 
 /**
- * @todo db uri shows dbuser and dbpwd in raw string
  * @constant uri to connect to the db
+ * @description raw string uri has been replaced with dotenv variable (contained in a .env file that will not appear on the repo)
  */
-const uri = "mongodb+srv://toto:toto@cluster0.q6ogu.mongodb.net/facebok?retryWrites=true&w=majority"
+const uri = config.MONGO_URI
+
 
 const client = async () => {
   await mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true})
