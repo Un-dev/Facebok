@@ -16,7 +16,9 @@ app.use('/users', users);
 
 app.listen(port, () => console.log(`The api is listening on port localhost:${port}!`));
 
-//closes mongo connection on process stop (that's one of the security stuff I had to add to the project as it may just break the api during a normal use)
+/**
+ * @function closes connection to mongo on shutdown of the api to prevent the number of connection to explode
+ */
 process.on('SIGINT', function() {
   mongoose.connection.close(() => {
     console.log('Mongoose disconnected on app termination');
