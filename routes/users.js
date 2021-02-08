@@ -28,9 +28,7 @@ users.get('/', (req, res, err) => {
 
 /**
  * @namespace users
- * @todo anyone can see any user's information, also shows raw password of users 
- * @description GET /id
- * Returns the user whose ID is id
+ * @description GET /id : Returns the user whose ID is id, the method has been modified to not display passwords
  */
 users.get('/:id', (req, res, erre) => {
   User.findById(new mongoose.mongo.ObjectId(req.params.id))
