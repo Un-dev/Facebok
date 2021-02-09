@@ -74,20 +74,23 @@ users.post('/', async(req, res, err) => {
 
 /**
  * @namespace users
- * @todo anyone can delete any user
- * @description DELETE /id
- * Deletes the user whose ID is id
+ * @description DELETE /token Deletes the currently logged in user
  */
-users.delete('/:id', (req, res, err)=>{
-  User.findByIdAndDelete(new mongoose.mongo.ObjectId(req.params.id))
-      .then(deletedUser => {
-        res.status(200).json(deletedUser)
-      })
+users.delete('/:token', (req, res, err)=>{
+  const token = req.params.token
+
+  jwt.verify(token, config.JWT_TOKEN, (err, decoded) => {
+    if(err) res.status(400).json(err)
+    User.findByIdAndDelete(decoded.userId)
+        .then(deletedUser => {
+          res.status(200).json(deletedUser)
+        })
+  })
 })
 
 /**
  * @namespace users
- * @description GET /me/:token gives every information about a user but only if he is logged in
+ * @description GET /me/token gives every information about a user but only if he is logged in
  */
 users.get('/me/:token', (req, res, err) => {
   const token = req.params.token
