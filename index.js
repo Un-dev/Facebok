@@ -12,6 +12,14 @@ const app = express()
 const port = 8000
 
 app.use(bodyParser.json())
+
+/**
+ * @function helmet
+ * @description sets the use of helmet, a package that sets various http header to prevent some type of attack such as :
+ * XSS (code injection), 
+ * clickjacking attack (baiting the user by forcing him to click on hidden link above actual link of a site), 
+ * also prevents DNS prefetch, whiwch is not really an attack but it gives your IP to DNs servers you havant visited
+ */
 app.use(helmet())
 
 app.use('/', express.static('out'))
@@ -25,7 +33,8 @@ app.use('', auth)
 app.listen(port, () => console.log(`The api is listening on port localhost:${port}!`));
 
 /**
- * @function closes connection to mongo on shutdown of the api to prevent the number of connection to explode
+ * @function mongoose_close
+ * @description closes connection to mongo on shutdown of the api to prevent the number of connection to explode
  */
 process.on('SIGINT', function() {
   mongoose.connection.close(() => {

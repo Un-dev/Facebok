@@ -36,7 +36,7 @@ auth.post('/signup', (req, res, err) => {
 
 /**
  * @namespace auth
- * @description POST /signin returns an authentification token if the right usernam and pwd are passed
+ * @description POST /signin returns an authentification token if the right username and pwd are passed
  */
 auth.post('/signin', (req, res, err) => {
     User.findOne({ username: req.body.username })
