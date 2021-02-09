@@ -47,33 +47,6 @@ users.get('/:id', (req, res, erre) => {
 
 /**
  * @namespace users
- * @todo the function allows new users to have the same password/username as other users, also allows sql injection and passwords are not encrypted
- * @description POST /
- * Adds a user in the users db collection
- */
-users.post('/', async(req, res, err) => {
-  try{
-    const{username, password} = req.body;
-    const id = new mongoose.mongo.ObjectId()
-
-    let user = {
-      _id: id,
-      username: username,
-      password: password
-    }
-    let userModel = new User(user)
-    await userModel.save()
-    User.findById(id)
-        .then(createdUser => {
-          res.status(201).json(createdUser)
-        })
-  }catch(err){
-    console.log(err)
-  }
-})
-
-/**
- * @namespace users
  * @description DELETE /token Deletes the currently logged in user
  */
 users.delete('/:token', (req, res, err)=>{
