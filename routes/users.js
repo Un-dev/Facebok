@@ -85,6 +85,10 @@ users.delete('/:id', (req, res, err)=>{
       })
 })
 
+/**
+ * @namespace users
+ * @description GET /me/:token gives every information about a user but only if he is logged in
+ */
 users.get('/me/:token', (req, res, err) => {
   const token = req.params.token
   jwt.verify(token, config.JWT_SECRET, (err, decoded) => {

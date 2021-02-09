@@ -8,6 +8,10 @@ import dotenv from 'dotenv'
 const config = dotenv.config().parsed
 const auth = express.Router();
 
+/**
+ * @namespace auth
+ * @description POST /signup creates a user with encrypted password
+ */
 auth.post('/signup', (req, res, err) => {
     const{username, password, age} = req.body;
   
@@ -30,6 +34,10 @@ auth.post('/signup', (req, res, err) => {
     }      
 })
 
+/**
+ * @namespace auth
+ * @description POST /signin returns an authentification token if the right usernam and pwd are passed
+ */
 auth.post('/signin', (req, res, err) => {
     User.findOne({ username: req.body.username })
         .then((user) => {
