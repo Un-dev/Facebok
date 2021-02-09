@@ -10,7 +10,7 @@ The api in itself is really basic. Written in express, it requests its data from
 * ```GET /users/``` : responds with all users in the DB
 * ```GET /users/:id``` : responds with the corresponding user
 * ```DELETE /users/:id``` : deletes the user
-* ```POST /users``` : creates a user
+* ```POST /users``` : creates a user (master branch only) 
 * ```GET /users/me/:token``` : responds with all user information if authenticated (secured branch only)
 * ```POST /signup``` : creates a user with and encrypts the pwd with bcrypt (secured branch only)
 * ```POST /signin``` : responds with an authent token (secured branch only)
