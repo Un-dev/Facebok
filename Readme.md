@@ -38,13 +38,23 @@ docker container run --rm -p 8000:8000 facebok:latest
 
 ## Code Organization
 
+### Files 
+
 * The entrypoint of the app is the ```index.js``` file
 
-* ```./models``` contains the models that mongoose will retrieve and, the role of models is to tell javascript what the mongo bject are supposed to look like
+* ```./models``` contains the models that mongoose will retrieve and, the role of models is to tell javascript what the mongo objects are supposed to look like
 
 * ```./mongo``` contains a script that connects the api to mongoCloud
 
 * ```./routes``` contains the routes of the api
+
+### Security Packages
+
+* [helmet](https://www.npmjs.com/package/helmet)
+
+* [bcrypt](https://www.npmjs.com/package/bcrypt)
+
+* [jsonwebtoken a.k.a. jwt](https://www.npmjs.com/package/jsonwebtoken)
 
 ## Others
 
