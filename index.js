@@ -1,14 +1,18 @@
 import express from 'express'
+import helmet from 'helmet'
 import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
+
+import auth from './routes/auth.js'
 import users from './routes/users.js'
 import client from './mongo/connect.js'
-import mongoose from 'mongoose'
 
 client()
 const app = express()
 const port = 8000
 
 app.use(bodyParser.json())
+app.use(helmet())
 
 app.use('/', express.static('out'))
 
