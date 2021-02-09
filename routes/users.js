@@ -54,8 +54,6 @@ users.get('/:id', (req, res, erre) => {
 users.post('/', async(req, res, err) => {
   try{
     const{username, password} = req.body;
-    // console.log(req.body)
-
     const id = new mongoose.mongo.ObjectId()
 
     let user = {
@@ -87,37 +85,13 @@ users.delete('/:id', (req, res, err)=>{
       })
 })
 
-users.get('/me', (req, res, err) => {
-
-})
-
-users.post('/signin', (req, res, err) => {
-  User.findOne({ username: req.body.username })
-      .then((user) => {
-        if (!user) {
-          return res.status(401).json({error: new Error('User not found!')})
-        }
-        bcrypt.compare(req.body.password, user.password).then((valid) => {
-          if(!valid) {
-            return res.status(401).json({
-              error: new Error('Incorrect password!')
-            })
-          }
-          const token = jwt.sign(
-            {userId: user._id}, 
-            config.JWT_SECRET, 
-            {expiresIn: '2d'}
-          )
-          res.status(200).json({
-            id: user._id,
-            token: token
-          })
-        })
-      })
-})
-
-user.post('/signup', (req, res, err) => {
-
+users.get('/me/:token', (req, res, err) => {
+  const token = req.params.token
+  jwt.verify(token, config.JWT_SECRET, (err, decoded) => {
+    if(err) res.status(400).json(err)
+    User.findById(decoded.userId)
+        .then(user => res.status(200).json(user))
+  })
 })
 
 export default users;
