@@ -15,8 +15,6 @@ The api in itself is really basic. Written in express, it requests its data from
 * ```POST /signup``` : creates a user with and encrypts the pwd with bcrypt *(secured branch only)*
 * ```POST /signin``` : responds with an authent token *(secured branch only)*
 
-
-
 ## Installation
 
 ### Method 1 (no installation required)
