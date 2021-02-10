@@ -3,6 +3,8 @@
 This is just a suuuuper simple api made during a cybersecurity course as a final project, 
 it is supposed to be ultra vulnerable against any attack in a first time then i'll have to explain where are the vulnerabilities and eventually correct them on another branch.
 
+There are 2 branches, master, with security vulnerabilities explained and secured with vulnerabilities resolved.
+
 The api in itself is really basic. Written in express, it requests its data from a MongoCloud cluster of mine through the mongoose framework, it only has one Entity, Users and few actions :
 
 * ```GET /``` : responds with the api auto-generated docs, the vulnerabilities are documented under the @todo tag
