@@ -23,6 +23,8 @@ If you have docker installed and running, you just have to run (faster, should a
 
 ```
 docker container run --rm -p 8000:8000 sgttabouret/facebok:latest
+or
+docker container run --rm -p 8000:8000 sgttabouret/facebok:secured
 ```
 
 ### Method 2 (still no installation required)
