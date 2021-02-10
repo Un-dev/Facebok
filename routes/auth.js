@@ -10,7 +10,7 @@ const auth = express.Router();
 
 /**
  * @namespace auth
- * @description POST /signup creates a user with encrypted password
+ * @description POST /signup creates a user with encrypted password, i think it may be vulnerable to nosql injection, which would mean the possibility of injecting malicious request to the db, but am not sure
  */
 auth.post('/signup', (req, res, err) => {
     const{username, password, age} = req.body;
