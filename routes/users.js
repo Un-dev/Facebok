@@ -9,7 +9,7 @@ const users = express.Router();
 
 /** 
  * @namespace users
- * @description GET / : Returns every users found in the database, the method has been modified to not display passwords
+ * @description GET / : Returns every users found in the database, the method has been modified to not display passwords, to test it i would just have to verify if endpoint returns a password field
 */
 users.get('/', (req, res, err) => {
   User.find()
@@ -31,7 +31,7 @@ users.get('/', (req, res, err) => {
 
 /**
  * @namespace users
- * @description GET /id : Returns the user whose ID is id, the method has been modified to not display passwords
+ * @description GET /id : Returns the user whose ID is id, the method has been modified to not display passwords, to test it i would just have to verify if endpoint returns a password field
  */
 users.get('/:id', (req, res, erre) => {
   User.findById(new mongoose.mongo.ObjectId(req.params.id))
@@ -46,7 +46,7 @@ users.get('/:id', (req, res, erre) => {
 
 /**
  * @namespace users
- * @description DELETE /token Deletes the currently logged in user
+ * @description DELETE /token Deletes the currently logged in user, to test it i would just have to make a request without token on the endpoint and see if it returns a 200 code
  */
 users.delete('/:token', (req, res, err)=>{
   const token = req.params.token
@@ -62,7 +62,7 @@ users.delete('/:token', (req, res, err)=>{
 
 /**
  * @namespace users
- * @description GET /me/token gives every information about a user but only if he is logged in
+ * @description GET /me/token gives every information about a user but only if he is logged in, to test it i would just have to make a request without token on the endpoint and see if it returns a 200 code
  */
 users.get('/me/:token', (req, res, err) => {
   const token = req.params.token
